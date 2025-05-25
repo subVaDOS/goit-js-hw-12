@@ -5,7 +5,7 @@ import axios from 'axios';
 const BASE_URL = 'https://pixabay.com/api/';
 
 // Унікальний ключ доступу до API (отримується після реєстрації на Pixabay)
-const API_KEY = '50197022-5c303e37ac1e7741936867a9a';
+const API_KEY = '50348782-72c1d2cf6f33e6e33f09bb691';
 
 // Встановлюємо базову адресу для всіх запитів axios
 axios.defaults.baseURL = BASE_URL;
@@ -26,9 +26,12 @@ axios.defaults.params = {
  * @returns {Promise<Object>} - Повертає об'єкт з даними (масив hits + totalHits)
  */
 export async function getImagesByQuery(query, page) {
-  // Робимо GET-запит до базової URL з додатковими параметрами: q (запит) та page (сторінка)
-  const response = await axios.get('', { params: { q: query, page: page } });
+  const response = await axios.get('', {
+    params: {
+      q: query, // Пошуковий запит
+      page: page, // Поточна сторінка
+    },
+  });
 
-  // Повертаємо лише ті дані, які потрібні (масив зображень та загальна кількість)
   return response.data;
 }
