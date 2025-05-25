@@ -4,19 +4,44 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>-- Mодуль 12 -- Синтаксис async/await. Пагінація</title>
+    <title>Модуль 12 -- async/await та Пагінація</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <div class="container js-container">
+        <div class="wrapper-form">
+          <form class="form js-form">
+            <label>
+              <input
+                type="text"
+                name="search-text"
+                placeholder="Search images..."
+              />
+            </label>
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <ul class="gallery js-gallery"></ul>
+      </div>
+      <button class="load-more js-load-more is-hidden">Load more</button>
+      <div class="loading-message js-loading-message is-hidden">
+        <p class="error-text">Loading images, please wait...</p>
+      </div>
+      <div class="error-message js-error-message is-hidden">
+        <p class="error-text">
+          Sorry, there are no images matching your search query. Please try
+          again.
+        </p>
+      </div>
     </main>
-
-    <load src="./partials/footer.html" />
+    <div class="loader-container">
+      <span class="loader is-hidden"></span>
+    </div>
 
     <script type="module" src="./main.js"></script>
   </body>
